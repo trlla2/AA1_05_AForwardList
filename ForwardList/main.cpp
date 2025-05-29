@@ -54,5 +54,4 @@ int main() {
     // Test concatenation operator
     ForwardList list3 = list1 + list2;
     std::cout << std::endl << "Concatenated list (list1 + list2): " << list3 << std::endl;
-
 }

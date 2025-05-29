@@ -147,6 +147,7 @@ void ForwardList::Erase(int value) {
 	Node* it = m_first;
 	Node* prev = nullptr;
 
+
 	while (it != nullptr) { // iterate 
 		if (it->m_value == value) { 
 			Node* del = it; // save to delete later
@@ -157,6 +158,7 @@ void ForwardList::Erase(int value) {
 				it = nullptr;
 			}
 			else if (it == m_first) { // is first
+				prev = it;
 				m_first = it->m_next;
 				it = m_first; // start from the start
 			}
@@ -167,10 +169,16 @@ void ForwardList::Erase(int value) {
 			}
 			else { // is not last and is not first
 				prev->m_next = it->m_next;
+
+				prev = it;
 				it = it->m_next;
 			}
 			 delete del; // delete node
 			 m_size--;
+		}
+		else {
+			prev = it;
+			it = it->m_next;
 		}
 	}
 }
